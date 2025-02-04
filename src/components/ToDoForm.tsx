@@ -16,15 +16,15 @@ const ToDoForm = () => {
         description: '',
         completed: false
     })
-    
+
   return (
-    <form className="todo-form">
+    <form className="todo-form" onSubmit={submitForm}>
 
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" name="title" />
+        <input type="text" id="title" name="title" value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })} />
 
         <label htmlFor="description">Description</label>
-        <textarea id="description" name="description" />
+        <textarea id="description" name="description" value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })}  />
 
         <button type="submit">Add</button>
 
