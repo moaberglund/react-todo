@@ -11,7 +11,7 @@ const ToDoForm = () => {
     }
 
     interface ErrorsData {
-        name?: string,
+        title?: string,
         description?: string
     }
 
@@ -24,7 +24,7 @@ const ToDoForm = () => {
 
     // Yup
     const validationSchema = Yup.object({
-        name: Yup.string().required('Please enter a title, title is required.').min(3, "The title must be at least 3 character."),
+        title: Yup.string().required('Please enter a title, title is required.').min(3, "The title must be at least 3 character."),
         description: Yup.string().max(200, "Description can not be more than 200 characters.")
     })
 
