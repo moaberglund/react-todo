@@ -37,8 +37,58 @@ const ToDos = () => {
     }
   }
 
+  const updateTodoActive = (id: string) => async () => {
+
+    try {
+
+      const resp = await fetch(`https://todo-api-qonl.onrender.com/api/todo/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          completed: "active"
+        })
+      });
+
+      if (!resp.ok) {
+        throw Error;
+      } else {
+        readToDos();
+      }
+
+    } catch (error) {
+      setError("Could not update the todo, try again later.");
+    }
+  }
+
+  const updateTodoDone = (id: string) => async () => {
+
+    try {
+
+      const resp = await fetch(`https://todo-api-qonl.onrender.com/api/todo/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          completed: "done"
+        })
+      });
+
+      if (!resp.ok) {
+        throw Error;
+      } else {
+        readToDos();
+      }
+
+    } catch (error) {
+      setError("Could not update the todo, try again later.");
+    }
+  }
+
   const deleteTodo = (id: string) => async () => {
-    
+
     try {
 
       const resp = await fetch(`https://todo-api-qonl.onrender.com/api/todo/${id}`, {
@@ -53,7 +103,7 @@ const ToDos = () => {
 
     } catch (error) {
       setError("Could not delete the todo, try again later.");
-    } 
+    }
   }
 
   return (
@@ -64,7 +114,9 @@ const ToDos = () => {
 
       <div>
         {todos.map((todo: FormData) => (
-          <div key={todo._id} className="todo" onDoubleClick={deleteTodo(todo._id)} >
+          <div key={todo._id} className={`todo ${todo.completed}`}
+            onClick={updateTodoActive(todo._id)}
+            onDoubleClick={updateTodoDone(todo._id)}>
             <h2>{todo.title}</h2>
             <p>{todo.description}</p>
           </div>

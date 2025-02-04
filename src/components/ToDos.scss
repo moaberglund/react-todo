@@ -16,5 +16,18 @@
             cursor: pointer;
             transform: translateY(-1px); 
         }
+
+        // För "active"-status (gul bakgrund och liten zoom-effekt)
+        &.active {
+            background-color: #ffeb3b; // Gul bakgrund för aktiv
+            transform: scale(1.02); // Gör den lite större för att indikera aktiv
+        }
+
+        // För "done"-status (grön bakgrund, genomstruken text, och lite uttonad)
+        &.done {
+            background-color: #666666; 
+            text-decoration: line-through; // Genomstruken text för slutförda
+            opacity: 0.7; // Lite uttonad för att indikera att den är slutförd
+        }
     }
 }
