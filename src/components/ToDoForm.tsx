@@ -10,12 +10,26 @@ const ToDoForm = () => {
         completed: boolean
     }
 
+    interface ErrorsData {
+        name?: string,
+        description?: string
+    }
+
     // State
     const [formData, setFormData] = useState<FormData>({
         title: '',
         description: '',
         completed: false
     })
+
+    // Yup
+    const validationSchema = Yup.object({
+        name: Yup.string().required('Please enter a title, title is required.').min(3, "The title must be at least 3 character."),
+        description: Yup.string().max(200, "Description can not be more than 200 characters.")
+    })
+
+    // Error state
+    const [errors, setErrors] = useState<ErrorsData>({})
 
   return (
     <form className="todo-form" onSubmit={submitForm}>
