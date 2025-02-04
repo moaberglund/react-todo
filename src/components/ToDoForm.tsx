@@ -1,3 +1,4 @@
+import './ToDoForm.scss'
 
 const ToDoForm = () => {
   return (
@@ -6,7 +7,7 @@ const ToDoForm = () => {
         <input type="text" id="title" name="title" />
 
         <label htmlFor="description">Description</label>
-        <input type="text" id="description" name="description" />
+        <textarea id="description" name="description" />
 
         <button type="submit">Add</button>
 
