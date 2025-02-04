@@ -38,7 +38,7 @@ const ToDos = () => {
 
 
   return (
-    <div>
+    <div className="readTodos">
       <h1>Things to do</h1>
 
       {error && <p className="info">{error}</p>}
