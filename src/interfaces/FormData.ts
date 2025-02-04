@@ -2,7 +2,7 @@ interface FormData {
     _id: string,
     title: string,
     description: string,
-    completed: boolean
+    completed: "todo" | "active" | "done"
 }
 
 export default FormData;
