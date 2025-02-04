@@ -23,7 +23,7 @@
             transform: scale(1.02); // Gör den lite större för att indikera aktiv
         }
 
-        // För "done"-status (grön bakgrund, genomstruken text, och lite uttonad)
+        // För "done"-status (genomstruken text, och lite uttonad)
         &.done {
             background-color: #666666; 
             text-decoration: line-through; // Genomstruken text för slutförda
