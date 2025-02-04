@@ -8,6 +8,7 @@ const ToDoForm = () => {
 
     // State
     const [formData, setFormData] = useState<FormData>({
+        _id: '',
         title: '',
         description: '',
         completed: false
@@ -44,10 +45,14 @@ const ToDoForm = () => {
 
             setErrors({});
             setFormData({
+                _id: '',
                 title: '',
                 description: '',
                 completed: false
             });
+
+            // Refresh the list
+            window.location.reload();
 
         } catch (errors) {
             const validationErrors: ErrorsData = {};
