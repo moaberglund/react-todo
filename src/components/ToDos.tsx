@@ -116,7 +116,9 @@ const ToDos = () => {
         {todos.map((todo: FormData) => (
           <div key={todo._id} className={`todo ${todo.completed}`}
             onClick={updateTodoActive(todo._id)}
-            onDoubleClick={updateTodoDone(todo._id)}>
+            onDoubleClick={updateTodoDone(todo._id)}
+            draggable={true}
+            onDragEnd={deleteTodo(todo._id)}>
             <h2>{todo.title}</h2>
             <p>{todo.description}</p>
           </div>
