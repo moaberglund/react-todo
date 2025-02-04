@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import FormData from "../interfaces/FormData"
+import './ToDos.scss'
 
 const ToDos = () => {
 
@@ -39,7 +40,6 @@ const ToDos = () => {
 
   return (
     <div className="readTodos">
-      <h1>Things to do</h1>
 
       {error && <p className="info">{error}</p>}
       {loading && <p className="loading">Loading...</p>}
@@ -52,8 +52,6 @@ const ToDos = () => {
           </div>
         ))}
       </div>
-
-
     </div>
   )
 }
