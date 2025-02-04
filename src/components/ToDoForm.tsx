@@ -1,19 +1,10 @@
 import './ToDoForm.scss'
 import { useState } from 'react'
 import * as Yup from 'yup'
+import FormData from '../interfaces/FormData'
+import ErrorsData from '../interfaces/ErrorsData'
 
 const ToDoForm = () => {
-
-    interface FormData {
-        title: string,
-        description: string,
-        completed: boolean
-    }
-
-    interface ErrorsData {
-        title?: string,
-        description?: string
-    }
 
     // State
     const [formData, setFormData] = useState<FormData>({
