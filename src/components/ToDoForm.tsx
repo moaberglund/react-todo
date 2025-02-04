@@ -11,7 +11,7 @@ const ToDoForm = () => {
         _id: '',
         title: '',
         description: '',
-        completed: false
+        completed: "todo"
     })
 
     // Yup
@@ -48,7 +48,7 @@ const ToDoForm = () => {
                 _id: '',
                 title: '',
                 description: '',
-                completed: false
+                completed: "todo"
             });
 
             // Refresh the list
