@@ -1,33 +1,41 @@
 .readTodos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 
-    .todo {
-        background-color: rgb(226, 226, 226);
-        padding: 1em;
-        width: 400px;
-        margin: 1em 0;
-        border-radius: 5px;
-        transition: transform 0.15s ease-out, background-color 0.2s ease-in-out;
-        &:hover {
-            background-color: rgb(200, 200, 200);
-            cursor: pointer;
-            transform: translateY(-1px); 
-        }
-
-        // För "active"-status (gul bakgrund och liten zoom-effekt)
-        &.active {
-            background-color: #ffeb3b; // Gul bakgrund för aktiv
-            transform: scale(1.02); // Gör den lite större för att indikera aktiv
-        }
-
-        // För "done"-status (genomstruken text, och lite uttonad)
-        &.done {
-            background-color: #666666; 
-            text-decoration: line-through; // Genomstruken text för slutförda
-            opacity: 0.7; // Lite uttonad för att indikera att den är slutförd
-        }
+  .todo {
+    background-color: rgb(226, 226, 226);
+    padding: 1em;
+    width: 400px;
+    margin: 1em 0;
+    border-radius: 5px;
+    transition: transform 0.15s ease-out, background-color 0.2s ease-in-out;
+    &:hover {
+      background-color: rgb(200, 200, 200);
+      cursor: pointer;
+      transform: translateY(-1px);
     }
+
+    // För "active"-status (gul bakgrund och liten zoom-effekt)
+    &.active {
+      background-color: #ffeb3b; // Gul bakgrund för aktiv
+      transform: scale(1.02); // Gör den lite större för att indikera aktiv
+      &:hover {
+        background-color: #ffe600;
+        transform: translateY(-1px);
+      }
+    }
+
+    // För "done"-status (genomstruken text, och lite uttonad)
+    &.done {
+      background-color: #666666;
+      text-decoration: line-through; // Genomstruken text för slutförda
+      opacity: 0.7; // Lite uttonad för att indikera att den är slutförd
+      &:hover {
+        background-color: #555555;
+        transform: translateY(-1px);
+      }
+    }
+  }
 }
