@@ -38,8 +38,26 @@ const ToDoForm = () => {
         try {
             await validationSchema.validate(formData, { abortEarly: false });
 
-            console.log("success", formData);
+            // Send data to API
+            const response = await fetch('https://todo-api-qonl.onrender.com/api/todo', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error("Something went wrong!");
+            }
+
             setErrors({});
+            setFormData({
+                title: '',
+                description: '',
+                completed: false
+            });
+
         } catch (errors) {
             const validationErrors: ErrorsData = {};
 
