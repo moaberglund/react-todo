@@ -53,23 +53,24 @@ const ToDoForm = () => {
             }
 
         }
-
-        return (
-            <form className="todo-form" onSubmit={submitForm}>
-
-                <label htmlFor="title">Title</label>
-                <input type="text" id="title" name="title" value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })} />
-                {errors.title && <span className="error-message">{errors.title}</span>}
-
-                <label htmlFor="description">Description</label>
-                <textarea id="description" name="description" value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })} />
-                {errors.description && <span className="error-message">{errors.description}</span>}
-
-                <button type="submit">Add</button>
-
-            </form>
-        )
     }
+
+    return (
+        <form className="todo-form" onSubmit={submitForm}>
+
+            <label htmlFor="title">Title</label>
+            <input type="text" id="title" name="title" value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })} />
+            {errors.title && <span className="error-message">{errors.title}</span>}
+
+            <label htmlFor="description">Description</label>
+            <textarea id="description" name="description" value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })} />
+            {errors.description && <span className="error-message">{errors.description}</span>}
+
+            <button type="submit">Add</button>
+
+        </form>
+    )
+
 }
 
 export default ToDoForm
