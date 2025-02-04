@@ -37,6 +37,24 @@ const ToDos = () => {
     }
   }
 
+  const deleteTodo = (id: string) => async () => {
+    
+    try {
+
+      const resp = await fetch(`https://todo-api-qonl.onrender.com/api/todo/${id}`, {
+        method: "DELETE"
+      });
+
+      if (!resp.ok) {
+        throw Error;
+      } else {
+        readToDos();
+      }
+
+    } catch (error) {
+      setError("Could not delete the todo, try again later.");
+    } 
+  }
 
   return (
     <div className="readTodos">
@@ -46,7 +64,7 @@ const ToDos = () => {
 
       <div>
         {todos.map((todo: FormData) => (
-          <div key={todo._id} className="todo">
+          <div key={todo._id} className="todo" onDoubleClick={deleteTodo(todo._id)} >
             <h2>{todo.title}</h2>
             <p>{todo.description}</p>
           </div>
